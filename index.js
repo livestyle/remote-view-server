@@ -5,6 +5,8 @@ var bodyParser = require('koa-bodyparser');
 var mongoose = require('mongoose');
 var router = require('./lib/router');
 
+const port = 9000;
+
 mongoose.connect(process.env.RV_MONGO_DB || 'mongodb://localhost:27017/rv');
 
 var app = koa()
@@ -30,7 +32,10 @@ var app = koa()
 	}
 })
 .use(router.routes())
-.use(router.allowedMethods());
+.use(router.allowedMethods())
+.on('error', function(err) {
+	console.log('Got error', err.message);
+});
 
-app.listen(9000);
-console.log('Created server on 9004 port');
+app.listen(port);
+console.log(`Created server on ${port} port`);
