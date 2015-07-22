@@ -16,7 +16,7 @@ var app = koa()
 		yield next;
 	} catch (err) {
 		// handle errors generated during routing
-		this.status = err.code || 500;
+		this.status = err.status || 500;
 		this.body = err.message;
 		this.app.emit('error', err, this);
 	}
