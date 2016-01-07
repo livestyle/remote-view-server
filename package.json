@@ -1,6 +1,6 @@
 {
   "name": "livestyle-remote-view-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A server for Remote View feature of LiveStyle for handling request tunneling",
   "main": "index.js",
   "scripts": {
