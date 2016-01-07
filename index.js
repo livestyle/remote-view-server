@@ -34,8 +34,12 @@ var app = koa()
 .use(router.routes())
 .use(router.allowedMethods())
 .on('error', function(err) {
-	console.log('Got error', err.message);
+	console.error(dateMark(), err);
 });
 
 app.listen(port);
-console.log(`Created server on ${port} port`);
+console.log(dateMark(), `Created server on ${port} port`);
+
+function dateMark() {
+	return `[${new Date()}]`;
+}
